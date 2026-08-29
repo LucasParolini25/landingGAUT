@@ -13,10 +13,193 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
 <style>
+  :root { color-scheme: dark; }
   body { margin: 0; background: #0B1120; font-family: Barlow, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
   a { color: #60A5FA; text-decoration: none; }
   a:hover { color: #93C5FD; }
   * { box-sizing: border-box; }
+  img, image-slot, svg { max-width: 100%; display: block; }
+
+  .hero-visual { position: relative; padding-bottom: 40px; overflow: visible; }
+  .hero-shell { position: relative; width: 100%; border-radius: 16px 16px 6px 6px; background: linear-gradient(160deg,#243456,#151F35); padding: 12px 12px 14px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.75); border: 1px solid rgba(255,255,255,.10); }
+  .hero-shell .preview { position: relative; width: 100%; aspect-ratio: 1920/869; border-radius: 8px; overflow: hidden; background: #F5F6F8; }
+  .hero-phone { position: absolute; right: 18px; bottom: 0; width: 186px; border-radius: 26px; background: #0E1728; border: 1px solid rgba(255,255,255,.14); padding: 8px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.8); z-index: 2; }
+  .hero-phone .phone-screen { position: relative; width: 100%; aspect-ratio: 315/700; border-radius: 20px; overflow: hidden; background: #F5F6F8; }
+
+  @media (max-width: 767px) {
+    body { overflow-x: hidden; }
+
+    section[data-screen-label="01 Hero"] {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      padding-bottom: 56px !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:first-child {
+      flex-wrap: wrap !important;
+      gap: 14px !important;
+      padding: 18px 0 32px !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:first-child > div:last-child {
+      width: 100% !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:last-child {
+      display: block !important;
+      gap: 0 !important;
+    }
+
+    section[data-screen-label="01 Hero"] a[href="#modulos"],
+    section[data-screen-label="01 Hero"] a[href="#dispositivos"] {
+      display: none !important;
+    }
+
+    section[data-screen-label="01 Hero"] a[href="#demo"] {
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      display: inline-flex !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:last-child > div:first-child {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    section[data-screen-label="01 Hero"] h1 {
+      font-size: 42px !important;
+      line-height: 0.98 !important;
+      letter-spacing: -0.03em !important;
+    }
+
+    section[data-screen-label="01 Hero"] p {
+      font-size: 16px !important;
+      line-height: 1.55 !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:last-child > div:first-child > div:nth-child(4) {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 12px !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:last-child > div:first-child > div:nth-child(4) > a {
+      width: 100% !important;
+      display: inline-flex !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:last-child > div:first-child > div:last-child {
+      gap: 8px 12px !important;
+      font-size: 12px !important;
+    }
+
+    .hero-visual {
+      position: relative !important;
+      padding-bottom: 52px !important;
+      overflow: visible !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .hero-shell {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 10px !important;
+    }
+
+    .hero-phone {
+      position: absolute !important;
+      right: 10px !important;
+      bottom: 10px !important;
+      width: min(34vw, 126px) !important;
+      padding: 6px !important;
+      margin-top: 0 !important;
+      z-index: 3 !important;
+    }
+
+    .hero-phone .phone-screen {
+      border-radius: 16px !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:last-child > div:last-child {
+      position: static !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-top: 24px !important;
+      padding-bottom: 0 !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:last-child > div:last-child > div:first-child {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+    }
+
+    section[data-screen-label="01 Hero"] > div > div:last-child > div:last-child > sc-if {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    section[data-screen-label="02 El problema"],
+    section[data-screen-label="03 Módulos"],
+    section[data-screen-label="04 Funciona donde estés"],
+    section[data-screen-label="05 Confianza"] {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+
+    section[data-screen-label="02 El problema"] h2,
+    section[data-screen-label="03 Módulos"] h2,
+    section[data-screen-label="04 Funciona donde estés"] h2 {
+      font-size: 32px !important;
+      line-height: 1.05 !important;
+    }
+
+    section[data-screen-label="02 El problema"] > div > div:last-child,
+    section[data-screen-label="03 Módulos"] > div > div:nth-child(2),
+    section[data-screen-label="03 Módulos"] > div > div:nth-child(3),
+    section[data-screen-label="05 Confianza"] > div {
+      grid-template-columns: 1fr !important;
+    }
+
+    section[data-screen-label="03 Módulos"] > div > div:first-child {
+      display: block !important;
+    }
+
+    section[data-screen-label="03 Módulos"] > div > div:first-child > p:last-child {
+      max-width: 100% !important;
+      margin-top: 12px !important;
+    }
+
+    section[data-screen-label="04 Funciona donde estés"] > div > div:first-child {
+      margin-bottom: 28px !important;
+    }
+
+    section[data-screen-label="04 Funciona donde estés"] > div > div:nth-child(2) {
+      display: block !important;
+      gap: 0 !important;
+    }
+
+    section[data-screen-label="04 Funciona donde estés"] > div > div:nth-child(2) > div:first-child,
+    section[data-screen-label="04 Funciona donde estés"] > div > div:nth-child(2) > div:last-child {
+      max-width: 100% !important;
+      flex: 1 1 100% !important;
+      width: 100% !important;
+    }
+
+    section[data-screen-label="04 Funciona donde estés"] > div > div:nth-child(2) > div:last-child {
+      margin-top: 24px !important;
+    }
+
+    section[data-screen-label="04 Funciona donde estés"] > div > div:nth-child(2) > div:last-child > div:first-child {
+      max-width: 210px !important;
+      margin: 0 auto !important;
+    }
+  }
 </style>
 </helmet>
 
@@ -44,7 +227,7 @@
       <div>
         <div style="display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(96,165,250,.35);background:rgba(59,130,246,.10);color:#93C5FD;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:26px">
           <span style="width:7px;height:7px;border-radius:50%;background:#60A5FA;display:block"></span>
-          Sistema de gestión de flotas
+          Sistema de gestión de flota
         </div>
         <h1 style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;text-transform:uppercase;font-size:64px;line-height:.98;letter-spacing:-.01em;margin:0 0 22px;text-wrap:balance">
           Dejá de gestionar tu flota de Uber y Taxi en <span style="color:#F5B800">Excel</span>
@@ -63,16 +246,16 @@
         </div>
       </div>
 
-      <div style="position:relative;padding-bottom:40px">
-        <div style="border-radius:16px 16px 6px 6px;background:linear-gradient(160deg,#243456,#151F35);padding:12px 12px 14px;box-shadow:0 40px 80px -30px rgba(0,0,0,.75);border:1px solid rgba(255,255,255,.10)">
-          <div style="position:relative;width:100%;aspect-ratio:1920/869;border-radius:8px;overflow:hidden;background:#F5F6F8">
+      <div class="hero-visual">
+        <div class="hero-shell">
+          <div class="preview">
             <image-slot id="ss-dashboard-hero" shape="rect" fit="cover" src="uploads/dashboard-adm.png" placeholder="dashboard.png — dashboard desktop"></image-slot>
           </div>
         </div>
         <div style="height:13px;margin:0 -6%;border-radius:0 0 12px 12px;background:linear-gradient(180deg,#2B3A5C,#1A2237);border:1px solid rgba(255,255,255,.08);border-top:none"></div>
         <sc-if value="{{ phoneOverlap }}" hint-placeholder-val="{{ true }}">
-          <div style="position:absolute;right:-26px;bottom:-18px;width:186px;border-radius:26px;background:#0E1728;border:1px solid rgba(255,255,255,.14);padding:8px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)">
-            <div style="position:relative;width:100%;aspect-ratio:315/700;border-radius:20px;overflow:hidden;background:#F5F6F8">
+          <div class="hero-phone">
+            <div class="phone-screen">
               <image-slot id="ss-dashboard-mobile-hero" shape="rect" fit="cover" src="uploads/dashboard-mobile.png" placeholder="dashboard-mobile.png"></image-slot>
             </div>
           </div>
@@ -86,7 +269,7 @@
   <div style="max-width:1100px;margin:0 auto">
     <p style="font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F5B800;margin:0 0 14px">El problema de hoy</p>
     <h2 style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:700;text-transform:uppercase;font-size:40px;line-height:1.05;margin:0 0 46px;max-width:760px">
-      La planilla te dice cuánto cobraste. No te dice cuánto ganás.
+      La planilla te dice cuánto cobraste. Pero no cuánto ganás.
     </h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px">
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:26px">
@@ -108,7 +291,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="14" width="4" height="6" rx="1"></rect><rect x="10" y="10" width="4" height="10" rx="1"></rect><rect x="16" y="5" width="4" height="15" rx="1"></rect></svg>
         </div>
         <h3 style="font-size:19px;font-weight:700;margin:0 0 10px">Cero visibilidad de rentabilidad</h3>
-        <p style="font-size:15.5px;line-height:1.6;color:#9FADC4;margin:0">Sabés lo que entra en total, pero no qué auto te deja ganancia real después de gastos y qué auto te la come.</p>
+        <p style="font-size:15.5px;line-height:1.6;color:#9FADC4;margin:0">Sabés lo que entra en total, pero no qué auto te deja ganancia real después de gastos y mantenimiento.</p>
       </div>
     </div>
   </div>
@@ -174,7 +357,7 @@
         <p style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#2563EB;margin:0 0 6px">Control diario</p>
         <p style="font-size:15.5px;line-height:1.55;color:#5B657A;margin:0 0 18px">El excedente de km y el total del día se calculan solos al cerrar el control.</p>
         <div style="position:relative;width:100%;aspect-ratio:16/10;border-radius:10px 10px 0 0;overflow:hidden;border:1px solid #E4E7EC;border-bottom:none;background:#fff">
-          <image-slot id="ss-control-diario" shape="rect" fit="contain" src="uploads/control-diario.png" placeholder="control-diario.png"></image-slot>
+          <image-slot id="ss-control-diario" shape="rect" fit="cover" src="uploads/control-diario-2.png" placeholder="control-diario-2.png" style="width:100%;height:100%;object-fit:cover;object-position:50% 0%;"></image-slot>
         </div>
       </div>
       <div style="background:#fff;border:1px solid #E4E7EC;border-radius:16px;padding:22px 22px 0;box-shadow:0 1px 2px rgba(15,23,42,.05);overflow:hidden">
