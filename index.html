@@ -20,12 +20,23 @@
   a:hover { color: #93C5FD; }
   * { box-sizing: border-box; }
   img, image-slot, svg { max-width: 100%; display: block; }
+  /* image-slot.js pone touch-action:none en la imagen y bloquea el scroll táctil */
+  image-slot::part(image) { touch-action: auto; }
 
   .hero-visual { position: relative; padding-bottom: 40px; overflow: visible; }
   .hero-shell { position: relative; width: 100%; border-radius: 16px 16px 6px 6px; background: linear-gradient(160deg,#243456,#151F35); padding: 12px 12px 14px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.75); border: 1px solid rgba(255,255,255,.10); }
   .hero-shell .preview { position: relative; width: 100%; aspect-ratio: 1920/869; border-radius: 8px; overflow: hidden; background: #F5F6F8; }
   .hero-phone { position: absolute; right: 18px; bottom: 0; width: 186px; border-radius: 26px; background: #0E1728; border: 1px solid rgba(255,255,255,.14); padding: 8px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.8); z-index: 2; }
   .hero-phone .phone-screen { position: relative; width: 100%; aspect-ratio: 315/700; border-radius: 20px; overflow: hidden; background: #F5F6F8; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: #fff; border: 1px solid #E4E7EC; border-radius: 12px; box-shadow: 0 1px 2px rgba(15,23,42,.05); }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 22px; font-size: 17px; font-weight: 700; color: #0F172A; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; flex: 0 0 auto; font-size: 22px; font-weight: 500; line-height: 1; color: #2563EB; }
+  .faq-item[open] summary::after { content: "\2212"; }
+  .faq-item summary:hover { color: #2563EB; }
+  .faq-item p { margin: 0; padding: 0 22px 22px; max-width: 620px; font-size: 15.5px; line-height: 1.6; color: #5B657A; }
 
   @media (max-width: 767px) {
     body { overflow-x: hidden; }
@@ -52,7 +63,8 @@
     }
 
     section[data-screen-label="01 Hero"] a[href="#modulos"],
-    section[data-screen-label="01 Hero"] a[href="#dispositivos"] {
+    section[data-screen-label="01 Hero"] a[href="#dispositivos"],
+    section[data-screen-label="01 Hero"] a[href="#preguntas"] {
       display: none !important;
     }
 
@@ -148,12 +160,19 @@
     section[data-screen-label="02 El problema"],
     section[data-screen-label="03 Módulos"],
     section[data-screen-label="04 Funciona donde estés"],
-    section[data-screen-label="05 Confianza"] {
+    section[data-screen-label="05 Confianza"],
+    section[data-screen-label="06 Preguntas frecuentes"] {
       padding-left: 16px !important;
       padding-right: 16px !important;
     }
 
+    section[data-screen-label="06 Preguntas frecuentes"] {
+      padding-top: 64px !important;
+      padding-bottom: 64px !important;
+    }
+
     section[data-screen-label="02 El problema"] h2,
+    section[data-screen-label="06 Preguntas frecuentes"] h2,
     section[data-screen-label="03 Módulos"] h2,
     section[data-screen-label="04 Funciona donde estés"] h2 {
       font-size: 32px !important;
@@ -212,14 +231,12 @@
     <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0 64px">
       <div style="display:flex;align-items:center;gap:14px">
         <image-slot id="gaut-logo-hero" shape="circle" fit="contain" src="uploads/logo-gaut.png" style="width:52px;height:52px;flex:0 0 auto" placeholder="logo.png"></image-slot>
-        <div style="display:flex;flex-direction:column;line-height:1">
-          <span style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;font-size:26px;letter-spacing:.06em">GAUT</span>
-          <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#93A3BC;margin-top:4px">Gestión de alquiler Uber y Taxi</span>
-        </div>
+        <span style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;font-size:26px;letter-spacing:.06em;line-height:1">GAUT</span>
       </div>
       <div style="display:flex;align-items:center;gap:26px">
         <a href="#modulos" style="font-size:15px;font-weight:500;color:#C7D2E4">Funcionalidades</a>
         <a href="#dispositivos" style="font-size:15px;font-weight:500;color:#C7D2E4">Dónde funciona</a>
+        <a href="#preguntas" style="font-size:15px;font-weight:500;color:#C7D2E4">Preguntas</a>
         <a href="https://wa.me/5493816213966?text=Hola%2C%20quiero%20solicitar%20una%20demo%20de%20GAUT." target="_blank" rel="noopener" style="white-space:nowrap;line-height:1.15;background:#F5B800;color:#12192B;font-weight:700;font-size:15px;padding:11px 20px;border-radius:8px" style-hover="background:#FBBF24">Quiero una demo</a>
       </div>
     </div>
@@ -228,22 +245,22 @@
       <div>
         <div style="display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(96,165,250,.35);background:rgba(59,130,246,.10);color:#93C5FD;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:26px">
           <span style="width:7px;height:7px;border-radius:50%;background:#60A5FA;display:block"></span>
-          Sistema de gestión de flota
+          Para dueños de flotas de alquiler
         </div>
         <h1 style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;text-transform:uppercase;font-size:64px;line-height:.98;letter-spacing:-.01em;margin:0 0 22px;text-wrap:balance">
-          Dejá de gestionar tu flota de Uber y Taxi en <span style="color:#F5B800">Excel</span>
+          ¿Tenés una flota y la alquilás a <span style="color:#F5B800">choferes de apps</span>?
         </h1>
         <p style="font-size:19px;line-height:1.55;color:#B6C2D6;margin:0 0 34px;max-width:520px;text-wrap:pretty">
-          Sistema todo-en-uno para controlar vehículos, conductores, alquileres, gastos y rentabilidad. Desde la computadora de la oficina o desde el celular en la calle.
+          GAUT te ordena el negocio: cada auto, cada chofer, cada alquiler y cada gasto en un solo sistema. Sabés cuánto te deja cada vehículo, sin planillas de Excel.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px">
           <a href="https://wa.me/5493816213966?text=Hola%2C%20quiero%20solicitar%20una%20demo%20de%20GAUT." target="_blank" rel="noopener" style="white-space:nowrap;line-height:1.15;background:#F5B800;color:#12192B;font-weight:700;font-size:17px;padding:16px 30px;border-radius:10px;box-shadow:0 10px 30px rgba(245,184,0,.22)" style-hover="background:#FBBF24">Quiero una demo</a>
           <a href="#modulos" style="white-space:nowrap;line-height:1.15;border:1px solid rgba(255,255,255,.28);color:#fff;font-weight:600;font-size:17px;padding:16px 30px;border-radius:10px" style-hover="border-color:#60A5FA;color:#93C5FD">Ver cómo funciona</a>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px;color:#8E9CB4">
-          <span>Cálculo automático de excedente de km</span>
-          <span>Reportes exportables</span>
-          <span>Roles y permisos</span>
+          <span>Excedente de km calculado solo</span>
+          <span>Ganancia neta por auto</span>
+          <span>Desde la PC o el celular</span>
         </div>
       </div>
 
@@ -447,7 +464,36 @@
   </div>
 </section>
 
-<section id="demo" data-screen-label="06 CTA final" style="padding:110px 24px;background:radial-gradient(90% 120% at 50% 0%, #1A2A4E 0%, #0B1120 62%)">
+<section id="preguntas" data-screen-label="06 Preguntas frecuentes" style="padding:96px 24px;background:#F5F6F8;color:#0F172A">
+  <div style="max-width:780px;margin:0 auto">
+    <p style="font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#2563EB;margin:0 0 12px">Preguntas frecuentes</p>
+    <h2 style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:700;text-transform:uppercase;font-size:44px;line-height:1.03;margin:0 0 36px">Lo que nos preguntan los dueños de flotas</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Necesito instalar algo?</summary>
+        <p>No. GAUT es un sistema web: entrás desde el navegador de la computadora o del celular con tu usuario y contraseña.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Funciona en el celular?</summary>
+        <p>Sí. El sistema se adapta a la pantalla del celular, así tu empleado registra el control diario de cada auto desde la calle.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Mis empleados ven la rentabilidad?</summary>
+        <p>No. El rol Empleado carga controles, alquileres y gastos, pero no ve la rentabilidad, no exporta reportes ni elimina registros. Eso queda solo para el Administrador.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo pasar mis datos de Excel?</summary>
+        <p>Escribinos por WhatsApp contándonos cómo llevás tu planilla hoy y vemos juntos la mejor forma de cargar tus autos y choferes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuántos autos puedo cargar?</summary>
+        <p>GAUT está pensado para flotas medianas, de 10 a 50 autos. Si tu flota es más grande, escribinos y lo vemos.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="demo" data-screen-label="07 CTA final" style="padding:110px 24px;background:radial-gradient(90% 120% at 50% 0%, #1A2A4E 0%, #0B1120 62%)">
   <div style="max-width:820px;margin:0 auto;text-align:center">
     <h2 style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;text-transform:uppercase;font-size:56px;line-height:1;margin:0 0 20px">¿Listo para ordenar tu flota?</h2>
     <p style="font-size:19px;line-height:1.6;color:#B6C2D6;margin:0 auto 36px;max-width:560px">Te mostramos el sistema funcionando con tus propios números en una demo de 20 minutos.</p>
@@ -459,7 +505,7 @@
   </div>
 </section>
 
-<footer data-screen-label="07 Footer" style="padding:38px 24px;background:#080D18;border-top:1px solid rgba(255,255,255,.07)">
+<footer data-screen-label="08 Footer" style="padding:38px 24px;background:#080D18;border-top:1px solid rgba(255,255,255,.07)">
   <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px">
     <div style="display:flex;align-items:center;gap:12px">
       <image-slot id="gaut-logo-footer" shape="circle" fit="contain" src="uploads/logo-gaut.png" style="width:36px;height:36px;flex:0 0 auto" placeholder="logo"></image-slot>
