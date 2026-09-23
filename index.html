@@ -1,8 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="es-AR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAUT | Sistema de gestión para flotas de alquiler a choferes de apps</title>
+<meta name="description" content="Software para dueños de flotas que alquilan autos a choferes de Uber y taxi. Controlá vehículos, conductores, alquileres, excedente de km, gastos y ganancia neta por auto.">
+<link rel="canonical" href="https://www.gaut.com.ar/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0B1120">
+<link rel="icon" type="image/x-icon" href="./uploads/favicon.ico">
+<link rel="apple-touch-icon" href="./uploads/logo-gaut.png">
+
+<!-- Vista previa al compartir (WhatsApp, Facebook, LinkedIn, X) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="GAUT">
+<meta property="og:title" content="GAUT | Gestión de flotas de alquiler a choferes de apps">
+<meta property="og:description" content="Cada auto, cada chofer, cada alquiler y cada gasto en un solo sistema. Sabé cuánto te deja cada vehículo, sin planillas de Excel.">
+<meta property="og:url" content="https://www.gaut.com.ar/">
+<meta property="og:image" content="https://www.gaut.com.ar/uploads/dashboard-adm.png">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="869">
+<meta property="og:image:alt" content="Panel de control de GAUT con autos alquilados, disponibles y alertas de vencimiento">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GAUT | Gestión de flotas de alquiler a choferes de apps">
+<meta name="twitter:description" content="Cada auto, cada chofer, cada alquiler y cada gasto en un solo sistema. Sabé cuánto te deja cada vehículo.">
+<meta name="twitter:image" content="https://www.gaut.com.ar/uploads/dashboard-adm.png">
+
+<!-- Datos estructurados para Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.gaut.com.ar/#org",
+      "name": "GAUT",
+      "url": "https://www.gaut.com.ar/",
+      "logo": "https://www.gaut.com.ar/uploads/logo-gaut.png",
+      "email": "info@gaut.com.ar",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+54-9-381-6213966",
+        "contactType": "sales",
+        "areaServed": "AR",
+        "availableLanguage": "es"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "GAUT",
+      "alternateName": "Gestión de Alquiler Uber y Taxi",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Sistema web para dueños de flotas que alquilan autos a choferes de apps: vehículos, conductores, control diario, excedente de km, gastos, reportes y rentabilidad por auto.",
+      "url": "https://www.gaut.com.ar/",
+      "image": "https://www.gaut.com.ar/uploads/dashboard-adm.png",
+      "inLanguage": "es-AR",
+      "publisher": { "@id": "https://www.gaut.com.ar/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Necesito instalar algo?", "acceptedAnswer": { "@type": "Answer", "text": "No. GAUT es un sistema web: entrás desde el navegador de la computadora o del celular con tu usuario y contraseña." } },
+        { "@type": "Question", "name": "¿Funciona en el celular?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El sistema se adapta a la pantalla del celular, así tu empleado registra el control diario de cada auto desde la calle." } },
+        { "@type": "Question", "name": "¿Mis empleados ven la rentabilidad?", "acceptedAnswer": { "@type": "Answer", "text": "No. El rol Empleado carga controles, alquileres y gastos, pero no ve la rentabilidad, no exporta reportes ni elimina registros. Eso queda solo para el Administrador." } },
+        { "@type": "Question", "name": "¿Puedo pasar mis datos de Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Escribinos por WhatsApp contándonos cómo llevás tu planilla hoy y vemos juntos la mejor forma de cargar tus autos y choferes." } },
+        { "@type": "Question", "name": "¿Cuántos autos puedo cargar?", "acceptedAnswer": { "@type": "Answer", "text": "GAUT está pensado para flotas medianas, de 10 a 50 autos. Si tu flota es más grande, escribinos y lo vemos." } }
+      ]
+    }
+  ]
+}
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -230,7 +299,7 @@
 
     <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0 64px">
       <div style="display:flex;align-items:center;gap:14px">
-        <image-slot id="gaut-logo-hero" shape="circle" fit="contain" src="uploads/logo-gaut.png" style="width:52px;height:52px;flex:0 0 auto" placeholder="logo.png"></image-slot>
+        <image-slot id="gaut-logo-hero" alt="Logo de GAUT" shape="circle" fit="contain" src="uploads/logo-gaut.png" style="width:52px;height:52px;flex:0 0 auto" placeholder="logo.png"></image-slot>
         <span style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;font-size:26px;letter-spacing:.06em;line-height:1">GAUT</span>
       </div>
       <div style="display:flex;align-items:center;gap:26px">
@@ -267,14 +336,14 @@
       <div class="hero-visual">
         <div class="hero-shell">
           <div class="preview">
-            <image-slot id="ss-dashboard-hero" shape="rect" fit="cover" src="uploads/dashboard-adm.png" placeholder="dashboard.png — dashboard desktop"></image-slot>
+            <image-slot id="ss-dashboard-hero" alt="Panel de control de GAUT en computadora: autos alquilados, disponibles y alertas de vencimiento" shape="rect" fit="cover" src="uploads/dashboard-adm.png" placeholder="dashboard.png — dashboard desktop"></image-slot>
           </div>
         </div>
         <div style="height:13px;margin:0 -6%;border-radius:0 0 12px 12px;background:linear-gradient(180deg,#2B3A5C,#1A2237);border:1px solid rgba(255,255,255,.08);border-top:none"></div>
         <sc-if value="{{ phoneOverlap }}" hint-placeholder-val="{{ true }}">
           <div class="hero-phone">
             <div class="phone-screen">
-              <image-slot id="ss-dashboard-mobile-hero" shape="rect" fit="cover" src="uploads/dashboard-mobile.png" placeholder="dashboard-mobile.png"></image-slot>
+              <image-slot id="ss-dashboard-mobile-hero" alt="Panel de control de GAUT en el celular" shape="rect" fit="cover" src="uploads/dashboard-mobile.png" placeholder="dashboard-mobile.png"></image-slot>
             </div>
           </div>
         </sc-if>
@@ -375,14 +444,14 @@
         <p style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#2563EB;margin:0 0 6px">Control diario</p>
         <p style="font-size:15.5px;line-height:1.55;color:#5B657A;margin:0 0 18px">El excedente de km y el total del día se calculan solos al cerrar el control.</p>
         <div style="position:relative;width:100%;aspect-ratio:16/10;border-radius:10px 10px 0 0;overflow:hidden;border:1px solid #E4E7EC;border-bottom:none;background:#fff">
-          <image-slot id="ss-control-diario" shape="rect" fit="cover" src="uploads/control-diario-2.png" placeholder="control-diario-2.png"></image-slot>
+          <image-slot id="ss-control-diario" alt="Control diario de un auto con cálculo automático del excedente de km" shape="rect" fit="cover" src="uploads/control-diario-2.png" placeholder="control-diario-2.png"></image-slot>
         </div>
       </div>
       <div style="background:#fff;border:1px solid #E4E7EC;border-radius:16px;padding:22px 22px 0;box-shadow:0 1px 2px rgba(15,23,42,.05);overflow:hidden">
         <p style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#2563EB;margin:0 0 6px">Reportes</p>
         <p style="font-size:15.5px;line-height:1.55;color:#5B657A;margin:0 0 18px">Ganancia neta por vehículo y evolución del mes, listo para exportar.</p>
         <div style="position:relative;width:100%;aspect-ratio:16/10;border-radius:10px 10px 0 0;overflow:hidden;border:1px solid #E4E7EC;border-bottom:none;background:#F5F6F8">
-          <image-slot id="ss-modulo-reportes" shape="rect" fit="cover" src="uploads/modulo-reportes.png" placeholder="modulo-reportes.png"></image-slot>
+          <image-slot id="ss-modulo-reportes" alt="Reporte de rentabilidad con ganancia neta por vehículo" shape="rect" fit="cover" src="uploads/modulo-reportes.png" placeholder="modulo-reportes.png"></image-slot>
         </div>
       </div>
     </div>
@@ -401,7 +470,7 @@
       <div style="flex:2 1 420px;min-width:0">
         <div style="border-radius:14px 14px 4px 4px;background:linear-gradient(160deg,#26375A,#141E33);padding:14px 14px 16px;border:1px solid rgba(255,255,255,.10);box-shadow:0 40px 70px -30px rgba(0,0,0,.7)">
           <div style="position:relative;width:100%;aspect-ratio:1920/869;border-radius:6px;overflow:hidden;background:#F5F6F8">
-            <image-slot id="ss-dashboard-devices" shape="rect" fit="cover" src="uploads/dashboard-adm.png" placeholder="dashboard.png — vista escritorio"></image-slot>
+            <image-slot id="ss-dashboard-devices" alt="GAUT en la computadora de la oficina, vista del administrador" shape="rect" fit="cover" src="uploads/dashboard-adm.png" placeholder="dashboard.png — vista escritorio"></image-slot>
           </div>
         </div>
         <div style="height:15px;margin:0 -4%;border-radius:0 0 14px 14px;background:linear-gradient(180deg,#2E4066,#19233A);border:1px solid rgba(255,255,255,.08);border-top:none"></div>
@@ -410,7 +479,7 @@
       <div style="flex:1 1 240px;min-width:0">
         <div style="max-width:290px;margin:0 auto;border-radius:34px;background:#0E1728;border:1px solid rgba(255,255,255,.14);padding:11px;box-shadow:0 40px 70px -30px rgba(0,0,0,.8)">
           <div style="position:relative;width:100%;aspect-ratio:315/700;border-radius:26px;overflow:hidden;background:#F5F6F8">
-            <image-slot id="ss-dashboard-mobile-devices" shape="rect" fit="cover" src="uploads/dashboard-mobile.png" placeholder="dashboard-mobile.png"></image-slot>
+            <image-slot id="ss-dashboard-mobile-devices" alt="GAUT en el celular, vista del empleado en la calle" shape="rect" fit="cover" src="uploads/dashboard-mobile.png" placeholder="dashboard-mobile.png"></image-slot>
           </div>
         </div>
         <p style="text-align:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#8E9CB4;margin:22px 0 0">En la calle — empleado</p>
@@ -424,7 +493,7 @@
           <p style="font-size:16px;line-height:1.6;color:#9FADC4;margin:0">El acceso es por usuario y rol, así cada persona ve solamente lo que le corresponde.</p>
         </div>
         <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#F5F6F8">
-          <image-slot id="ss-pantalla-login" shape="rect" fit="cover" placeholder="pantalla-login.png"></image-slot>
+          <image-slot id="ss-pantalla-login" alt="Pantalla de inicio de sesión de GAUT" shape="rect" fit="cover" placeholder="pantalla-login.png"></image-slot>
         </div>
       </div>
     </sc-if>
@@ -508,7 +577,7 @@
 <footer data-screen-label="08 Footer" style="padding:38px 24px;background:#080D18;border-top:1px solid rgba(255,255,255,.07)">
   <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px">
     <div style="display:flex;align-items:center;gap:12px">
-      <image-slot id="gaut-logo-footer" shape="circle" fit="contain" src="uploads/logo-gaut.png" style="width:36px;height:36px;flex:0 0 auto" placeholder="logo"></image-slot>
+      <image-slot id="gaut-logo-footer" alt="Logo de GAUT" shape="circle" fit="contain" src="uploads/logo-gaut.png" style="width:36px;height:36px;flex:0 0 auto" placeholder="logo"></image-slot>
       <span style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;font-size:20px;letter-spacing:.06em">GAUT</span>
       <span style="font-size:14px;color:#7A88A0">Gestión de Alquiler Uber y Taxi</span>
     </div>
