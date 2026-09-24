@@ -98,6 +98,17 @@
   .hero-phone { position: absolute; right: 18px; bottom: 0; width: 186px; border-radius: 26px; background: #0E1728; border: 1px solid rgba(255,255,255,.14); padding: 8px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.8); z-index: 2; }
   .hero-phone .phone-screen { position: relative; width: 100%; aspect-ratio: 315/700; border-radius: 20px; overflow: hidden; background: #F5F6F8; }
 
+  .nav-menu { display: none; position: relative; }
+  .nav-menu summary { list-style: none; cursor: pointer; width: 44px; height: 44px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); color: #fff; display: flex; align-items: center; justify-content: center; }
+  .nav-menu summary::-webkit-details-marker { display: none; }
+  .nav-menu .icon-close, .nav-menu[open] .icon-open { display: none; }
+  .nav-menu[open] .icon-close { display: block; }
+  .nav-menu[open] summary { background: rgba(255,255,255,.08); }
+  .nav-menu-panel { position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(260px, calc(100vw - 32px)); padding: 8px; border-radius: 14px; background: #121C33; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 24px 48px -12px rgba(0,0,0,.7); }
+  .nav-menu-panel a { padding: 13px 14px; border-radius: 9px; font-size: 16px; font-weight: 500; color: #C7D2E4; }
+  .nav-menu-panel a:hover { background: rgba(255,255,255,.06); color: #fff; }
+  .nav-menu-panel a.nav-menu-cta { margin-top: 6px; text-align: center; font-weight: 700; background: #F5B800; color: #12192B; }
+
   .faq-list { display: flex; flex-direction: column; gap: 12px; }
   .faq-item { background: #fff; border: 1px solid #E4E7EC; border-radius: 12px; box-shadow: 0 1px 2px rgba(15,23,42,.05); }
   .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 22px; font-size: 17px; font-weight: 700; color: #0F172A; }
@@ -136,6 +147,13 @@
     section[data-screen-label="01 Hero"] a[href="#preguntas"] {
       display: none !important;
     }
+
+    /* Menú desplegable: en mobile la barra queda logo + botón ☰ en una sola fila */
+    section[data-screen-label="01 Hero"] > div > div:first-child { flex-wrap: nowrap !important; }
+    section[data-screen-label="01 Hero"] > div > div:first-child > div:last-child { width: auto !important; }
+    section[data-screen-label="01 Hero"] .nav-cta { display: none !important; }
+    .nav-menu { display: block; }
+    section[data-screen-label="01 Hero"] .nav-menu-panel a { display: block !important; }
 
     section[data-screen-label="01 Hero"] a[href="#demo"] {
       width: 100% !important;
@@ -306,7 +324,19 @@
         <a href="#modulos" style="font-size:15px;font-weight:500;color:#C7D2E4">Funcionalidades</a>
         <a href="#dispositivos" style="font-size:15px;font-weight:500;color:#C7D2E4">Dónde funciona</a>
         <a href="#preguntas" style="font-size:15px;font-weight:500;color:#C7D2E4">Preguntas</a>
-        <a href="https://wa.me/5493816213966?text=Hola%2C%20quiero%20solicitar%20una%20demo%20de%20GAUT." target="_blank" rel="noopener" style="white-space:nowrap;line-height:1.15;background:#F5B800;color:#12192B;font-weight:700;font-size:15px;padding:11px 20px;border-radius:8px" style-hover="background:#FBBF24">Quiero una demo</a>
+        <a class="nav-cta" href="https://wa.me/5493816213966?text=Hola%2C%20quiero%20solicitar%20una%20demo%20de%20GAUT." target="_blank" rel="noopener" style="white-space:nowrap;line-height:1.15;background:#F5B800;color:#12192B;font-weight:700;font-size:15px;padding:11px 20px;border-radius:8px" style-hover="background:#FBBF24">Quiero una demo</a>
+        <details class="nav-menu">
+          <summary aria-label="Abrir menú">
+            <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+            <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+          </summary>
+          <nav class="nav-menu-panel">
+            <a href="#modulos">Funcionalidades</a>
+            <a href="#dispositivos">Dónde funciona</a>
+            <a href="#preguntas">Preguntas</a>
+            <a class="nav-menu-cta" href="https://wa.me/5493816213966?text=Hola%2C%20quiero%20solicitar%20una%20demo%20de%20GAUT." target="_blank" rel="noopener">Quiero una demo</a>
+          </nav>
+        </details>
       </div>
     </div>
 
@@ -583,22 +613,18 @@
     </div>
     <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;font-size:12.5px;color:#5F6B82">
       <span>© 2026 GAUT</span>
-      <sc-if value="{{ showThesisNote }}" hint-placeholder-val="{{ true }}">
-        <span>Proyecto desarrollado por Lucas Parolini</span>
-      </sc-if>
     </div>
   </div>
 </footer>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;phoneOverlap&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showLoginStrip&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Dispositivos&quot;},&quot;showThesisNote&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Footer&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;phoneOverlap&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showLoginStrip&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Dispositivos&quot;}}">
 class Component extends DCLogic {
   renderVals() {
     return {
       phoneOverlap: this.props.phoneOverlap ?? true,
       showLoginStrip: this.props.showLoginStrip ?? false,
-      showThesisNote: this.props.showThesisNote ?? true,
     };
   }
 }
@@ -637,6 +663,17 @@ class Component extends DCLogic {
   });
   toggle();
 })();
+
+// Menú mobile: se cierra al elegir una opción o al tocar fuera de él.
+document.addEventListener("click", function (e) {
+  document.querySelectorAll(".nav-menu[open]").forEach(function (menu) {
+    if (!menu.contains(e.target) || e.target.closest(".nav-menu-panel a")) menu.removeAttribute("open");
+  });
+});
 </script>
+
+<!-- Vercel Web Analytics (se activa desde el panel de Vercel) -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
