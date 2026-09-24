@@ -38,7 +38,7 @@
       "@id": "https://www.gaut.com.ar/#org",
       "name": "GAUT",
       "url": "https://www.gaut.com.ar/",
-      "logo": "https://www.gaut.com.ar/uploads/logo-gaut.png",
+      "logo": "https://www.gaut.com.ar/uploads/favicon-192.png",
       "email": "info@gaut.com.ar",
       "contactPoint": {
         "@type": "ContactPoint",
@@ -78,7 +78,6 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="icon" type="image/x-icon" href="./uploads/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
@@ -300,7 +299,7 @@
 
     <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0 64px">
       <div style="display:flex;align-items:center;gap:14px">
-        <image-slot id="gaut-logo-hero" alt="Logo de GAUT" shape="circle" fit="contain" src="uploads/logo-gaut.png" style="width:52px;height:52px;flex:0 0 auto" placeholder="logo.png"></image-slot>
+        <image-slot id="gaut-logo-hero" alt="Logo de GAUT" shape="circle" fit="contain" src="uploads/logo-gaut.webp" style="width:52px;height:52px;flex:0 0 auto" placeholder="logo.png"></image-slot>
         <span style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;font-size:26px;letter-spacing:.06em;line-height:1">GAUT</span>
       </div>
       <div style="display:flex;align-items:center;gap:26px">
@@ -337,14 +336,14 @@
       <div class="hero-visual">
         <div class="hero-shell">
           <div class="preview">
-            <image-slot id="ss-dashboard-hero" alt="Panel de control de GAUT en computadora: autos alquilados, disponibles y alertas de vencimiento" shape="rect" fit="cover" src="uploads/dashboard-adm.png" placeholder="dashboard.png — dashboard desktop"></image-slot>
+            <image-slot id="ss-dashboard-hero" alt="Panel de control de GAUT en computadora: autos alquilados, disponibles y alertas de vencimiento" shape="rect" fit="cover" src="uploads/dashboard-adm.webp" placeholder="dashboard.png — dashboard desktop"></image-slot>
           </div>
         </div>
         <div style="height:13px;margin:0 -6%;border-radius:0 0 12px 12px;background:linear-gradient(180deg,#2B3A5C,#1A2237);border:1px solid rgba(255,255,255,.08);border-top:none"></div>
         <sc-if value="{{ phoneOverlap }}" hint-placeholder-val="{{ true }}">
           <div class="hero-phone">
             <div class="phone-screen">
-              <image-slot id="ss-dashboard-mobile-hero" alt="Panel de control de GAUT en el celular" shape="rect" fit="cover" src="uploads/dashboard-mobile.png" placeholder="dashboard-mobile.png"></image-slot>
+              <image-slot id="ss-dashboard-mobile-hero" alt="Panel de control de GAUT en el celular" shape="rect" fit="cover" src="uploads/dashboard-mobile.webp" placeholder="dashboard-mobile.png"></image-slot>
             </div>
           </div>
         </sc-if>
@@ -445,14 +444,14 @@
         <p style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#2563EB;margin:0 0 6px">Control diario</p>
         <p style="font-size:15.5px;line-height:1.55;color:#5B657A;margin:0 0 18px">El excedente de km y el total del día se calculan solos al cerrar el control.</p>
         <div style="position:relative;width:100%;aspect-ratio:16/10;border-radius:10px 10px 0 0;overflow:hidden;border:1px solid #E4E7EC;border-bottom:none;background:#fff">
-          <image-slot id="ss-control-diario" alt="Control diario de un auto con cálculo automático del excedente de km" shape="rect" fit="cover" src="uploads/control-diario-2.png" placeholder="control-diario-2.png"></image-slot>
+          <image-slot id="ss-control-diario" alt="Control diario de un auto con cálculo automático del excedente de km" shape="rect" fit="cover" src="uploads/control-diario-2.webp" placeholder="control-diario-2.png"></image-slot>
         </div>
       </div>
       <div style="background:#fff;border:1px solid #E4E7EC;border-radius:16px;padding:22px 22px 0;box-shadow:0 1px 2px rgba(15,23,42,.05);overflow:hidden">
         <p style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#2563EB;margin:0 0 6px">Reportes</p>
         <p style="font-size:15.5px;line-height:1.55;color:#5B657A;margin:0 0 18px">Ganancia neta por vehículo y evolución del mes, listo para exportar.</p>
         <div style="position:relative;width:100%;aspect-ratio:16/10;border-radius:10px 10px 0 0;overflow:hidden;border:1px solid #E4E7EC;border-bottom:none;background:#F5F6F8">
-          <image-slot id="ss-modulo-reportes" alt="Reporte de rentabilidad con ganancia neta por vehículo" shape="rect" fit="cover" src="uploads/modulo-reportes.png" placeholder="modulo-reportes.png"></image-slot>
+          <image-slot id="ss-modulo-reportes" alt="Reporte de rentabilidad con ganancia neta por vehículo" shape="rect" fit="cover" src="uploads/modulo-reportes.webp" placeholder="modulo-reportes.png"></image-slot>
         </div>
       </div>
     </div>
@@ -471,7 +470,7 @@
       <div style="flex:2 1 420px;min-width:0">
         <div style="border-radius:14px 14px 4px 4px;background:linear-gradient(160deg,#26375A,#141E33);padding:14px 14px 16px;border:1px solid rgba(255,255,255,.10);box-shadow:0 40px 70px -30px rgba(0,0,0,.7)">
           <div style="position:relative;width:100%;aspect-ratio:1920/869;border-radius:6px;overflow:hidden;background:#F5F6F8">
-            <image-slot id="ss-dashboard-devices" alt="GAUT en la computadora de la oficina, vista del administrador" shape="rect" fit="cover" src="uploads/dashboard-adm.png" placeholder="dashboard.png — vista escritorio"></image-slot>
+            <image-slot id="ss-dashboard-devices" alt="GAUT en la computadora de la oficina, vista del administrador" shape="rect" fit="cover" src="uploads/dashboard-adm.webp" placeholder="dashboard.png — vista escritorio"></image-slot>
           </div>
         </div>
         <div style="height:15px;margin:0 -4%;border-radius:0 0 14px 14px;background:linear-gradient(180deg,#2E4066,#19233A);border:1px solid rgba(255,255,255,.08);border-top:none"></div>
@@ -480,7 +479,7 @@
       <div style="flex:1 1 240px;min-width:0">
         <div style="max-width:290px;margin:0 auto;border-radius:34px;background:#0E1728;border:1px solid rgba(255,255,255,.14);padding:11px;box-shadow:0 40px 70px -30px rgba(0,0,0,.8)">
           <div style="position:relative;width:100%;aspect-ratio:315/700;border-radius:26px;overflow:hidden;background:#F5F6F8">
-            <image-slot id="ss-dashboard-mobile-devices" alt="GAUT en el celular, vista del empleado en la calle" shape="rect" fit="cover" src="uploads/dashboard-mobile.png" placeholder="dashboard-mobile.png"></image-slot>
+            <image-slot id="ss-dashboard-mobile-devices" alt="GAUT en el celular, vista del empleado en la calle" shape="rect" fit="cover" src="uploads/dashboard-mobile.webp" placeholder="dashboard-mobile.png"></image-slot>
           </div>
         </div>
         <p style="text-align:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#8E9CB4;margin:22px 0 0">En la calle — empleado</p>
@@ -567,10 +566,10 @@
   <div style="max-width:820px;margin:0 auto;text-align:center">
     <h2 style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;text-transform:uppercase;font-size:56px;line-height:1;margin:0 0 20px">¿Listo para ordenar tu flota?</h2>
     <p style="font-size:19px;line-height:1.6;color:#B6C2D6;margin:0 auto 36px;max-width:560px">Te mostramos el sistema funcionando con tus propios números en una demo de 20 minutos.</p>
-    <a href="https://wa.me/5493816213966?text=Hola%2C%20quiero%20solicitar%20una%20demo%20de%20GAUT." target="_blank" rel="noopener" style="display:inline-block;white-space:nowrap;line-height:1.15;background:#F5B800;color:#12192B;font-weight:700;font-size:18px;padding:18px 38px;border-radius:10px;box-shadow:0 14px 36px rgba(245,184,0,.25)" style-hover="background:#FBBF24">Solicitar una demo</a>
+    <a href="https://wa.me/5493816213966?text=Hola%2C%20quiero%20solicitar%20una%20demo%20de%20GAUT." target="_blank" rel="noopener" style="display:inline-block;white-space:nowrap;line-height:1.15;background:#F5B800;color:#12192B;font-weight:700;font-size:18px;padding:18px 38px;border-radius:10px;box-shadow:0 14px 36px rgba(245,184,0,.25)" style-hover="background:#FBBF24">Quiero una demo</a>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;margin-top:38px;font-size:16px;color:#C7D2E4">
-      <span>Contacto: info@gaut.com.ar</span>
-      <span>WhatsApp +54 9 381 6213966</span>
+      <a href="mailto:info@gaut.com.ar" style="color:#C7D2E4" style-hover="color:#93C5FD">Contacto: info@gaut.com.ar</a>
+      <a href="https://wa.me/5493816213966?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20GAUT." target="_blank" rel="noopener" style="color:#C7D2E4" style-hover="color:#93C5FD">WhatsApp +54 9 381 6213966</a>
     </div>
   </div>
 </section>
@@ -578,7 +577,7 @@
 <footer data-screen-label="08 Footer" style="padding:38px 24px;background:#080D18;border-top:1px solid rgba(255,255,255,.07)">
   <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px">
     <div style="display:flex;align-items:center;gap:12px">
-      <image-slot id="gaut-logo-footer" alt="Logo de GAUT" shape="circle" fit="contain" src="uploads/logo-gaut.png" style="width:36px;height:36px;flex:0 0 auto" placeholder="logo"></image-slot>
+      <image-slot id="gaut-logo-footer" alt="Logo de GAUT" shape="circle" fit="contain" src="uploads/logo-gaut.webp" style="width:36px;height:36px;flex:0 0 auto" placeholder="logo"></image-slot>
       <span style="font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:800;font-size:20px;letter-spacing:.06em">GAUT</span>
       <span style="font-size:14px;color:#7A88A0">Gestión de Alquiler Uber y Taxi</span>
     </div>
