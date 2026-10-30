@@ -16,8 +16,9 @@
 ## Deploy — lo decide Lucas
 
 - **Vercel publica automáticamente cada push a `main`** en www.gaut.com.ar. Un push a `main` es una publicación: solo Lucas lo hace.
-- Claude trabaja en una rama (`feat/<tema>` o `fix/<tema>`, desde `main`), commitea ahí y le avisa a Lucas qué revisar.
-- Nunca push a `main`, force push, rebase ni borrar ramas.
+- Flujo como en gaut-webapp: rama (`feat/<tema>` o `fix/<tema>`, desde `develop`) → `develop` → `main`. Claude trabaja en la rama, commitea ahí y le avisa a Lucas qué revisar.
+- Lucas pasa la rama a `develop` y la sube: Vercel arma una vista previa (Preview) para revisar antes de publicar. Después pasa `develop` a `main`.
+- Nunca push ni merge a `develop` o `main`, force push, rebase ni borrar ramas.
 - El dominio está en DonWeb. **No tocar** el registro TXT de verificación de Search Console.
 
 ---
